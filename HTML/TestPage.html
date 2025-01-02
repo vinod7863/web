@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Online Exam</title>
+</head>
+<body>
+
+    <!-- Header Section -->
+
+        <h1>Welcome to the Online Exam</h1>
+        <p>Please read the instructions carefully before starting the exam.</p>
+  
+
+    <!-- Main Content Section -->
+
+        <h2>Instructions:</h2>
+        <ul>
+            <li>Each question is mandatory.</li>
+            <li>Submit your answers within the allotted time.</li>
+            <li>Click the "Submit Exam" button when you're done.</li>
+        </ul>
+
+        <hr>
+
+        <!-- Exam Questions -->
+        <form action="submit_exam.html" method="post">
+            <div class="question">
+                <label for="q1">1. What is the capital of France?</label><br>
+                <input type="radio"  name="q1" value="Paris" required> Paris<br>
+                <input type="radio" name="q1" value="London"> London<br>
+                <input type="radio" name="q1" value="Berlin"> Berlin<br>
+                <input type="radio" name="q1" value="Madrid"> Madrid
+            </div>
+
+            <div class="question">
+                <label for="q2">2. Solve: 5 + 3 = ?</label><br>
+                <input type="radio" name="q2" value="6" required> 6<br>
+                <input type="radio" name="q2" value="7"> 7<br>
+                <input type="radio"  name="q2" value="8"> 8<br>
+                <input type="radio" name="q2" value="9"> 9
+            </div>
+
+            <div class="question">
+                <label for="q3">3. Write a short note on "Online Education".</label><br>
+                <textarea  name="q3" rows="4" cols="50" placeholder="Your answer here..." required></textarea>
+            </div>
+
+            <button type="submit">Submit Exam</button>
+        </form>
+ 
+
+    <!-- Footer Section -->
+    
+        <p>&copy; 2025 Online Examination System. All Rights Reserved.</p>
+    
+
+</body>
+</html>
