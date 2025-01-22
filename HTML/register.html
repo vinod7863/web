@@ -1,46 +1,60 @@
 <!DOCTYPE html>
 <html lang = "en">
     <head>
-        <title>Registration</title>
+        <title >Registration</title>
+        <link rel = "stylesheet" type = "text/css" href = "CSS/register.css" />
     </head>
     <body>
-        <h1>Registration</h1>
-        <form action = "register.php" method = "POST">
-            <label for = "name">Name:</label>
-            <input type = "text" placeholder = "Enter your name" required><br>
-            <label for = "user">Gender:</label>
-            <input type = "radio" name = "user" value = "student">Male
-            <input type = "radio" name = "user" value = "admin">Female
-            <br>
-            <label for = "roll">Roll:</label>
-            <input type = "roll" placeholder = "Enter your roll number" required>
-            <br>
-            <label for = "DOB">Date of Birth:</label>
-            <input type = "date" required>
-            <br>
-            <label for="department">Department:</label>
-            <select id="department" name="department" required>
-                <option value="">Select a department</option>
-                <option value="CSE">CSE</option>
-                <option value="IT">IT</option>
-                <option value="MECH">MECH</option>
-                <option value="Mark">CIVIL</option> 
-                <option value="EEE">EEE</option>
-                <option value="ECE">ECE</option>
-                <option value="CSE-AIML">CSE-AIML</option>
-                <option value="CSE-AIDS">CSE-AIDS</option>
-                </select>
-            <br>
-            <label for = "email">Email:</label>
-            <input type = "email" placeholder = "Enter your email" required>
-            <br>
-            <label for = "password">Password:</label>
-            <input type = "password" placeholder = "Enter your password" required>
-            <br>
-            <label for = "confirm">Confirm Password:</label>
-            <input type = "password" placeholder = "Confirm your password" required>
-            <br>
-            <input type = "submit" value = "Register">
-        </form>
+        <div class = "form-container">
+            <h1>Registration</h1>
+            <form>
+                  <div class = "form-group">
+                    <label for = "name">Name:</label>
+                    <input type = "text" placeholder = "Enter your name" required>  
+                  </div>
+                  <div class = "form-group">
+                    <label for = "user">Gender:</label>
+                    <input type = "radio"  name = "user" value = "Male">Male
+                    <input type = "radio"  name = "user" value = "Female">Female
+                  </div>
+                    <div class = "form-group">
+                        <label for = "roll">Roll:</label>
+                        <input type = "roll" placeholder = "Enter your roll number" required>
+                    </div>
+                    <div class = "form-group">
+                        <label for = "DOB">Date of Birth:</label>
+                        <input type = "date" required>
+                    </div>
+                    <div class = "form-group">
+                        <label for = "department">Department:</label>
+                        <select id = "department" name = "department" required>
+                            <option value = "">Select a department</option>
+                            <option value = "CSE">CSE</option>
+                            <option value = "IT">IT</option>
+                            <option value = "MECH">MECH</option>
+                            <option value = "Mark">CIVIL</option> 
+                            <option value = "EEE">EEE</option>
+                            <option value = "ECE">ECE</option>
+                            <option value = "CSE-AIML">CSE-AIML</option>
+                            <option value = "CSE-AIDS">CSE-AIDS</option>
+                        </select>
+                    </div>
+                    <div class = "form-group">
+                        <label for = "email">Email:</label>
+                        <input type = "email" placeholder = "Enter your email" required>
+                    </div>
+                    <div class = "form-group">
+                        <label for = "password">Password:</label>
+                        <input type = "password" placeholder = "Enter your password" required>
+                    </div>
+                    <div class = "form-group">
+                        <label for = "confirm">Confirm Password:</label>
+                        <input type = "password" placeholder = "Confirm your password" required>
+                    </div>
+                    <div class = "form-group">
+                       <input type = "submit" value = "Register">
+                    </div>
+            </form>
+        </div>
     </body>
 </html>
