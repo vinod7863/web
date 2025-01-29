@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Table Styling: border-spacing and table-layout</title>
+  <style>
+    /* Table with border-spacing and table-layout examples */
+    .spacing-table {
+      border-collapse: separate; /* Required for border-spacing to work */
+      border-spacing: 20px 10px; /* Horizontal and vertical spacing between cells */
+      width: 80%;
+      margin: 20px auto;
+      border: 1px solid #ddd;
+    }
+
+    .layout-table {
+      table-layout: fixed; /* Columns have fixed widths */
+      width: 80%;
+      margin: 20px auto;
+      border: 1px solid #333;
+    }
+
+    /* Styling cells for both tables */
+    th, td {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ccc;
+    }
+
+    /* Fixed widths for table-layout: fixed */
+    .layout-table th, .layout-table td {
+      width: 150px; /* Fixed column width */
+      word-wrap: break-word; /* Ensures content wraps within fixed width */
+    }
+  </style>
+</head>
+<body>
+  <h1>Table Styling Example</h1>
+
+  <h2>1. Table with border-spacing</h2>
+  <table class="spacing-table">
+    <tr>
+      <th>Header 1</th>
+      <th>Header 2</th>
+      <th>Header 3</th>
+    </tr>
+    <tr>
+      <td>Row 1, Col 1</td>
+      <td>Row 1, Col 2</td>
+      <td>Row 1, Col 3</td>
+    </tr>
+    <tr>
+      <td>Row 2, Col 1</td>
+      <td>Row 2, Col 2</td>
+      <td>Row 2, Col 3</td>
+    </tr>
+  </table>
+
+  <h2>2. Table with table-layout: fixed</h2>
+  <table class="layout-table">
+    <tr>
+      <th>Fixed Header 1</th>
+      <th>Fixed Header 2</th>
+      <th>Fixed Header 3</th>
+    </tr>
+    <tr>
+      <td>This is a long text that will wrap within the fixed column width.</td>
+      <td>Short text</td>
+      <td>Another long text example to test wrapping.</td>
+    </tr>
+    <tr>
+      <td>Data in Row 2</td>
+      <td>More text</td>
+      <td>Additional data here</td>
+    </tr>
+  </table>
+</body>
+</html>
