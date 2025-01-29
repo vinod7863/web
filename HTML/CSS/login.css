@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #c5cdc7;
+    font-size: 30px;
+}
+input[type="radio"] {
+    width: auto;
+    display: inline;
+    align-items: center;
+    gap: 10px;
+}
+
+label {
+    font-weight: normal;
+    margin: 0;
+}
