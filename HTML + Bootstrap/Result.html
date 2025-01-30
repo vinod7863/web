@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Online Examination System</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="text-center my-4">Result</h1>
+            <marquee behavior="scroll" direction="left" class="alert alert-info">Results Declared!!</marquee>
+            <form action="result.php" method="POST" class="my-4">
+                <div class="form-group">
+                    <label for="search">Enter your HallTicket number</label>
+                    <input type="search" class="form-control" id="search" placeholder="Search for results">
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+            <p>Here are your results:</p>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Marks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Maths</td>
+                        <td>90</td>
+                    </tr>
+                    <tr>
+                        <td>Science</td>
+                        <td>85</td>
+                    </tr>
+                    <tr>
+                        <td>English</td>
+                        <td>95</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>

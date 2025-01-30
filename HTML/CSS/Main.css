@@ -1,13 +1,15 @@
+/* Global Styles */
 * {
     box-sizing: border-box;
 }
 
+/* Header Styles */
 h1 {
     color: red;
 }
 
-
-ul{
+/* Navigation Menu Styles */
+ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -32,16 +34,14 @@ li a:hover {
     background-color: #13d83e;
 }
 
-
-.leftcolumn {   
+/* Column Layout Styles */
+.left-column {   
     float: left;
     width: 75%;
 }
 
-
-
-.rightcolumn{
-    width: 300px; /* Adjust width */
+.right-column {
+    width: 25%;
     height: 200px; /* Adjust height */
     overflow: hidden;
     background-color: #111;
@@ -52,8 +52,9 @@ li a:hover {
     justify-content: center;
     align-items: center;
     float: left;
-    width: 25%;
 }
+
+/* Scroll Container Styles */
 .scroll-container {
     display: flex;
     flex-direction: column;
@@ -61,13 +62,13 @@ li a:hover {
     animation: scroll-up 5s linear infinite;
 }
 
-
-
+/* Image Styles */
 .image {
     width: 100%;
     padding: 30px;
 }
 
+/* Footer Styles */
 .footer {
     padding: 20px;
     text-align: center;
@@ -75,6 +76,7 @@ li a:hover {
     margin-top: 20px;
 }
 
+/* Clearfix for Rows */
 .row::after {
     content: "";
     display: table;
