@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup UI</title>
+    <link rel="stylesheet" href="../CSS/login.css">
+    <script type="text/javascript" src="../Javascript/login.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <div class="content">
+                <h2>Welcome Back!</h2>
+                <p>To keep connected with us please login with your personal info</p>
+                <button class="sign-in">SIGN IN</button>
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="content">
+                <h2>Create Account</h2>
+                <div class="social-icons">
+                    <button class="social-btn">F</button>
+                    <button class="social-btn">G+</button>
+                    <button class="social-btn">in</button>
+                </div>
+                <p class="or-text">or use your email for registration:</p>
+                <form onsubmit="validateLogin(event)">
+                    <input type="email" id="email" placeholder="Email">
+                    <input type="password" id="password" placeholder="Password">
+                    <button type="submit" class="sign-up">SIGN IN</button>
+                    <p id="error-message"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

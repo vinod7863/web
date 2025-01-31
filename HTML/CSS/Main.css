@@ -6,6 +6,7 @@
 /* Header Styles */
 h1 {
     color: red;
+    height: 20px;
 }
 
 /* Navigation Menu Styles */
@@ -16,6 +17,7 @@ ul {
     overflow: hidden;
     background-color: #333;
     border: 3px solid #e7e7e7;
+    height : 120px;
 }
 
 li {
@@ -42,30 +44,14 @@ li a:hover {
 
 .right-column {
     width: 25%;
-    height: 200px; /* Adjust height */
-    overflow: hidden;
-    background-color: #111;
-    color: white;
-    font-size: 20px;
-    border: 2px solid #444;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     float: left;
 }
 
-/* Scroll Container Styles */
-.scroll-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    animation: scroll-up 5s linear infinite;
-}
-
 /* Image Styles */
-.image {
+.left-column .image {
     width: 100%;
-    padding: 30px;
+    height: 800px;
+    
 }
 
 /* Footer Styles */
@@ -82,3 +68,8 @@ li a:hover {
     display: table;
     clear: both;
 }
+
+.rightcolumn .scroll-continer {
+    height: 100%;
+    overflow: auto;
+} 
