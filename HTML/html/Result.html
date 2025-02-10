@@ -1,34 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Online Examination System</title>
-    </head>
-    <body>
-        <h1>Result</h1>
-        <marquee behavior="scroll" direction="left">Results Declared!!</marquee>
-        <form action="result.php" method="POST">
-            <label for="search">Enter your HallTicket number</label>
-            <input type="search" placeholder="Search for results">
-            <br>
-            <input type="submit" value="Search">
-            <p>Here are your results:</p>
-            <table>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Result</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/Result.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Exam Result</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Enter student name or roll number">
+            <button type="button">Search</button>
+        </div>
+        <table>
             <tr>
                 <th>Subject</th>
                 <th>Marks</th>
+                <th>Status</th>
             </tr>
             <tr>
-                <td>Maths</td>
-                <td>90</td>
+                <td>Mathematics</td>
+                <td>85</td>
+                <td class="pass">Pass</td>
             </tr>
             <tr>
                 <td>Science</td>
-                <td>85</td>
+                <td>78</td>
+                <td class="pass">Pass</td>
             </tr>
             <tr>
-                <td>English</td>
-                <td>95</td>
+                <td>History</td>
+                <td>65</td>
+                <td class="pass">Pass</td>
+            </tr>
+            <tr>
+                <td>Geography</td>
+                <td>45</td>
+                <td class="fail">Fail</td>
             </tr>
         </table>
-    </form>
-    </body>
+    </div>
+</body>
+</html>

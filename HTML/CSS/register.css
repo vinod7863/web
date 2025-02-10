@@ -88,3 +88,7 @@ body {
 }
 
   
+.error {
+  color: red !important;
+  display: none;
+}

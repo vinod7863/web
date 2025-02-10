@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MCQ Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -38,6 +39,10 @@
             border-radius: 5px;
             margin-top: 10px;
         }
+        #chart-container {
+            width: 10%;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -46,6 +51,9 @@
         <div id="quiz"></div>
         <button onclick="submitTest()">Submit</button>
         <h3 id="result"></h3>
+    </div>
+    <div id="chart-container">
+        <canvas id="resultChart"></canvas>
     </div>
 
     <script>
@@ -92,13 +100,31 @@
 
         function submitTest() {
             let score = 0;
+            let incorrect = 0;
             questions.forEach((q, index) => {
                 const selectedOption = document.querySelector(`input[name="q${index}"]:checked`);
                 if (selectedOption && selectedOption.value === q.answer) {
                     score++;
+                } else {
+                    incorrect++;
                 }
             });
             document.getElementById("result").innerText = `Your score: ${score} / ${questions.length}`;
+            drawChart(score, incorrect);
+        }
+
+        function drawChart(correct, incorrect) {
+            const ctx = document.getElementById('resultChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Correct', 'Incorrect'],
+                    datasets: [{
+                        data: [correct, incorrect],
+                        backgroundColor: ['green', 'red']
+                    }]
+                }
+            });
         }
 
         loadQuiz();

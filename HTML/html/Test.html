@@ -1,17 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Online Examination System</title>
-    </head>
-    <body>
-        <h1>This is login page</h1>
-        <label for="username">Username:</label>
-        <input type="username" placeholder="Enter your username" required>
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" placeholder="Enter your password" required>
-        <br>
-        <input type="submit" value="Login"><br>
-        <a href="TestPage.html">Test Page</a>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../CSS/Test.css">
+    <title>Exam Test Page</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Exam Test</h1>
+        </div>
+    </header>
+    <div class="container">
+        <div class="main">
+            <form>
+                <div class="question">
+                    <h3>Question 1: What is the capital of France?</h3>
+                    <label><input type="radio" name="q1" value="a"> Paris</label><br>
+                    <label><input type="radio" name="q1" value="b"> London</label><br>
+                    <label><input type="radio" name="q1" value="c"> Rome</label><br>
+                    <label><input type="radio" name="q1" value="d"> Berlin</label>
+                </div>
+                <div class="question">
+                    <h3>Question 2: What is 2 + 2?</h3>
+                    <label><input type="radio" name="q2" value="a"> 3</label><br>
+                    <label><input type="radio" name="q2" value="b"> 4</label><br>
+                    <label><input type="radio" name="q2" value="c"> 5</label><br>
+                    <label><input type="radio" name="q2" value="d"> 6</label>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
 </html>

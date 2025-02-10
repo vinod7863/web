@@ -1,66 +1,109 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
     <head>
-        <title >Registration</title>
-        <link rel = "stylesheet" type = "text/css" href = "../CSS/register.css" />
-        <script type = "text/javascript" src = "../JavaScript/register.js"></script>
+        <title>Registration</title>
+        <link rel="stylesheet" type="text/css" href="../CSS/register.css" />
+        <style>
+            .error {
+                color: red;
+            }
+        </style>
     </head>
     <body>
-        <div class = "form-container">
+        <div class="form-container">
             <h1>Registration</h1>
-            <form onsubmit = "validateRegistration()">
-                  <div class = "form-group">
-                    <label for = "name">Name:</label>
-                    <input type = "text" placeholder = "Enter your name" required>  
-                  </div>
-                  <div class = "form-group">
-                    <label for = "user">Gender:</label>
-                    <input type = "radio"  name = "user" value = "Male">Male
-                    <input type = "radio"  name = "user" value = "Female">Female
-                  </div>
-                    <div class = "form-group">
-                        <label for = "roll">Roll:</label>
-                        <input type = "roll" placeholder = "Enter your roll number" required>
-                    </div>
-                    <div class = "form-group">
-                        <label for = "DOB">Date of Birth:</label>
-                        <input type = "date" required>
-                    </div>
-                    <div class = "form-group">
-                        <label for = "department">Department:</label>
-                        <select id = "department" name = "department" required>
-                            <option value = "">Select a department</option>
-                            <option value = "CSE">CSE</option>
-                            <option value = "IT">IT</option>
-                            <option value = "MECH">MECH</option>
-                            <option value = "Mark">CIVIL</option> 
-                            <option value = "EEE">EEE</option>
-                            <option value = "ECE">ECE</option>
-                            <option value = "CSE-AIML">CSE-AIML</option>
-                            <option value = "CSE-AIDS">CSE-AIDS</option>
-                        </select>
-                    </div>
-                    <div class = "form-group">
-                        <label for = "email">Email:</label>
-                        <input type = "email" id="email" placeholder = "Enter your email" required>
-                        <div id = "emailError" class="error"></div>
-                    </div>
-                    <div class = "form-group">
-                        <label for = "password">Password:</label>
-                        <input type = "password" id="password" placeholder = "Enter your password" required>
-                        <div id = "passwordError" class="error"></div>
-                    </div>
-                    <div class = "form-group">
-                        <label for = "confirm">Confirm Password:</label>
-                        <input type = "password" id="confirmPassword" placeholder = "Confirm your password" required>
-                        <div id = "confirmPasswordError" class="error"></div>
-                    </div>
-                    <div class = "form-group">
-                       <input type = "submit" value = "Register">
-                    </div>
+            <form onsubmit="validateRegistration(event)">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="user">Gender:</label>
+                    <input type="radio" name="user" value="Male">Male
+                    <input type="radio" name="user" value="Female">Female
+                </div>
+                <div class="form-group">
+                    <label for="roll">Roll:</label>
+                    <input type="roll" placeholder="Enter your roll number" required>
+                </div>
+                <div class="form-group">
+                    <label for="DOB">Date of Birth:</label>
+                    <input type="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="department">Department:</label>
+                    <select id="department" name="department" required>
+                        <option value="">Select a department</option>
+                        <option value="CSE">CSE</option>
+                        <option value="IT">IT</option>
+                        <option value="MECH">MECH</option>
+                        <option value="Mark">CIVIL</option>
+                        <option value="EEE">EEE</option>
+                        <option value="ECE">ECE</option>
+                        <option value="CSE-AIML">CSE-AIML</option>
+                        <option value="CSE-AIDS">CSE-AIDS</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                    <div id="emailError" class="error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                    <div id="passwordError" class="error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="confirm">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+                    <div id="confirmPasswordError" class="error"></div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Register">
+                </div>
             </form>
         </div>
     </body>
 </html>
 
+<script>
+    function validateRegistration(event) {
+        event.preventDefault();
+        
+        // Clear previous error messages
+        document.getElementById('emailError').innerText = '';
+        document.getElementById('passwordError').innerText = '';
+        document.getElementById('confirmPasswordError').innerText = '';
 
+        // Get form values
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        var confirmPassword = document.getElementById('confirmPassword').value;
+
+        // Email validation
+        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            document.getElementById('emailError').innerText = 'Please enter a valid email address.';
+            return false;
+        }
+
+        // Password validation
+        if (password.length < 6) {
+            document.getElementById('passwordError').innerText = 'Password must be at least 6 characters long.';
+            return false;
+        }
+
+        // Confirm password validation
+        if (password !== confirmPassword) {
+            document.getElementById('confirmPasswordError').innerText = 'Passwords do not match.';
+            return false;
+        }
+
+        // If all validations pass, submit the form
+        alert('Registration successful!');
+        return true;
+    }
+
+    document.querySelector('form').addEventListener('submit', validateRegistration);
+</script>
