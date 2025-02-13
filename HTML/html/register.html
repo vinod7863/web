@@ -1,109 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Registration</title>
-        <link rel="stylesheet" type="text/css" href="../CSS/register.css" />
-        <style>
-            .error {
-                color: red;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+        .success {
+            color: green;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Register</h2>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <div id="emailError" class="error"></div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <div id="passwordError" class="error"></div>
+            </div>
+            <button type="submit">Register</button>
+            <div id="formSuccess" class="success"></div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+            let confirmPassword = document.getElementById('confirmPassword').value;
+            let emailError = document.getElementById('emailError');
+            let passwordError = document.getElementById('passwordError');
+            let formSuccess = document.getElementById('formSuccess');
+
+            emailError.textContent = '';
+            passwordError.textContent = '';
+            formSuccess.textContent = '';
+
+            let valid = true;
+
+            // Email validation
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                emailError.textContent = 'Please enter a valid email address.';
+                valid = false;
             }
-        </style>
-    </head>
-    <body>
-        <div class="form-container">
-            <h1>Registration</h1>
-            <form onsubmit="validateRegistration(event)">
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" placeholder="Enter your name" required>
-                </div>
-                <div class="form-group">
-                    <label for="user">Gender:</label>
-                    <input type="radio" name="user" value="Male">Male
-                    <input type="radio" name="user" value="Female">Female
-                </div>
-                <div class="form-group">
-                    <label for="roll">Roll:</label>
-                    <input type="roll" placeholder="Enter your roll number" required>
-                </div>
-                <div class="form-group">
-                    <label for="DOB">Date of Birth:</label>
-                    <input type="date" required>
-                </div>
-                <div class="form-group">
-                    <label for="department">Department:</label>
-                    <select id="department" name="department" required>
-                        <option value="">Select a department</option>
-                        <option value="CSE">CSE</option>
-                        <option value="IT">IT</option>
-                        <option value="MECH">MECH</option>
-                        <option value="Mark">CIVIL</option>
-                        <option value="EEE">EEE</option>
-                        <option value="ECE">ECE</option>
-                        <option value="CSE-AIML">CSE-AIML</option>
-                        <option value="CSE-AIDS">CSE-AIDS</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" placeholder="Enter your email" required>
-                    <div id="emailError" class="error"></div>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" placeholder="Enter your password" required>
-                    <div id="passwordError" class="error"></div>
-                </div>
-                <div class="form-group">
-                    <label for="confirm">Confirm Password:</label>
-                    <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
-                    <div id="confirmPasswordError" class="error"></div>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Register">
-                </div>
-            </form>
-        </div>
-    </body>
+
+            // Password match validation
+            if (password !== confirmPassword) {
+                passwordError.textContent = 'Passwords do not match.';
+                valid = false;
+            }
+
+            if (valid) {
+                formSuccess.textContent = 'Registration successful!';
+                // Here you can add code to submit the form data to the server
+            }
+        });
+    </script>
+</body>
 </html>
-
-<script>
-    function validateRegistration(event) {
-        event.preventDefault();
-        
-        // Clear previous error messages
-        document.getElementById('emailError').innerText = '';
-        document.getElementById('passwordError').innerText = '';
-        document.getElementById('confirmPasswordError').innerText = '';
-
-        // Get form values
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
-        var confirmPassword = document.getElementById('confirmPassword').value;
-
-        // Email validation
-        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(email)) {
-            document.getElementById('emailError').innerText = 'Please enter a valid email address.';
-            return false;
-        }
-
-        // Password validation
-        if (password.length < 6) {
-            document.getElementById('passwordError').innerText = 'Password must be at least 6 characters long.';
-            return false;
-        }
-
-        // Confirm password validation
-        if (password !== confirmPassword) {
-            document.getElementById('confirmPasswordError').innerText = 'Passwords do not match.';
-            return false;
-        }
-
-        // If all validations pass, submit the form
-        alert('Registration successful!');
-        return true;
-    }
-
-    document.querySelector('form').addEventListener('submit', validateRegistration);
-</script>
