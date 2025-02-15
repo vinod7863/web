@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>getElementsByTagName Example</title>
+</head>
+<body>
+    <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+    <p>This is a paragraph.</p>
+    <p>This is another paragraph.</p>
+
+    <script>
+        // Get all paragraph elements
+        var paragraphs = document.getElementsByTagName("p");
+
+        // Loop through the paragraphs and change their text color
+        for (var i = 0; i < paragraphs.length; i++) {
+            paragraphs[i].style.color = "blue";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuerySelector Example</title>
+</head>
+<body>
+    <h1 id="title">Hello World</h1>
+    <p class="description">This is a paragraph.</p>
+    <button id="changeTextButton">Change Text</button>
+
+    <script>
+        document.getElementById('changeTextButton').addEventListener('click', function() {
+            var title = document.querySelector('#title');
+            title.textContent = 'Text Changed!';
+        });
+    </script>
+</body>
+</html>
+
