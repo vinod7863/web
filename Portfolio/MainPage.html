@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .navbar {
+            background-color: #333;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1100px;
+            margin: auto;
+        }
+        .navbar-brand {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links li {
+            display: inline;
+        }
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #00bcd4;
+        }
+
+        .theme-toggle {
+            background-color: #00bcd4;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            border-radius: 5px;
+        }
+        .theme-toggle:hover {
+            background-color: #008c9e;
+        }
+        .section {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            margin: 20px auto;
+        }
+        .btn {
+            background-color: #00bcd4;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #008c9e;
+        }
+        .chart-container {
+            width: 60%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">My Portfolio</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()">Dark Mode</button></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section id="about" class="section">
+        <h1>About Me</h1>
+        <img src="image.png" alt="Profile Picture" class="profile-img">
+        <p>Hello! I'm a UI Designer passionate about creating engaging user experiences.</p>
+    </section>
+    
+    <section id="projects" class="section">
+        <h1>Projects</h1>
+        <p>Here are some of my works:</p>
+        <button class="btn" onclick="viewMore()">View More</button>
+    </section>
+    
+    <section id="contact" class="section">
+        <h1>Contact Me</h1>
+        <p>Get in touch for collaboration or inquiries.</p>
+        <button class="btn" onclick="emailMe()">Email Me</button>
+    </section>
+    
+    <section id="skills" class="section">
+        <h1>My Skills</h1>
+        <div class="chart-container">
+            <canvas id="skillsChart"></canvas>
+        </div>
+    </section>
+    <script>
+        function viewMore() {
+            alert("More projects coming soon!");
+        }
+        function emailMe() {
+            window.location.href = "mailto:your.email@example.com";
+        }
+        function toggleTheme() {
+            let body = document.body;
+            let button = document.querySelector(".theme-toggle");
+            if (body.style.backgroundColor === "rgb(18, 18, 18)") {
+                body.style.backgroundColor = "#ffffff";
+                body.style.color = "#000000";
+                button.textContent = "Dark Mode";
+            } else {
+                body.style.backgroundColor = "#121212";
+                body.style.color = "#ffffff";
+                button.textContent = "Light Mode";
+            }
+        }
+
+        const ctx = document.getElementById('skillsChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['HTML', 'CSS', 'JavaScript', 'UI Design', 'React'],
+                datasets: [{
+                    label: 'Skill Level',
+                    data: [90, 85, 80, 75, 70],
+                    backgroundColor: ['#00bcd4', '#008c9e', '#00796b', '#004d40', '#00251a'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                animation: {
+                    duration: 1500,
+                    easing: 'easeInOutQuart'
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
