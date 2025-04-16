@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        h1 {
+            color: #333;
+        }
+        .question-block {
+            margin-bottom: 30px;
+        }
+        .question-text {
+            font-weight: bold;
+        }
+        label {
+            display: block;
+            margin: 5px 0;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Online Test</h1>
+
+    <form method="POST" action="/submit">
+        {% for q in questions %}
+            <div class="question-block">
+                <p class="question-text">Q{{ loop.index }}: {{ q.question }}</p>
+
+                <label><input type="radio" name="answer_{{ q.id }}" value="{{ q.option1 }}"> {{ q.option1 }}</label>
+                <label><input type="radio" name="answer_{{ q.id }}" value="{{ q.option2 }}"> {{ q.option2 }}</label>
+                <label><input type="radio" name="answer_{{ q.id }}" value="{{ q.option3 }}"> {{ q.option3 }}</label>
+                <label><input type="radio" name="answer_{{ q.id }}" value="{{ q.option4 }}"> {{ q.option4 }}</label>
+            </div>
+            <hr>
+        {% endfor %}
+
+        <button type="submit">Submit Answers</button>
+    </form>
+</body>
+</html>
